@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     marginVertical: 12,
+    marginLeft: 20,
   },
   title: {
     fontFamily: theme.fonts.title700,

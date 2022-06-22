@@ -23,7 +23,7 @@ export function Guilds({ handleGuildSelected }: Props) {
       game: 'League of Legends',
       icon: null,
       owner: true,
-    }
+    },
   ];
 
   return (
@@ -36,7 +36,8 @@ export function Guilds({ handleGuildSelected }: Props) {
             <Guild data={item} onPress={() => handleGuildSelected(item)} />
           )}
           showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={() => <ListDivider />}
+          ItemSeparatorComponent={() => <ListDivider length='74%' />}
+          contentContainerStyle={{ paddingBottom: 68 }}
           style={styles.guilds}
         />
       </View>

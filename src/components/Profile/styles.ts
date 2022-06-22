@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     marginRight: 6
   },
   username: {
-    fontFamily: theme.fonts.title500,
+    fontFamily: theme.fonts.title700,
     fontSize: 24,
     lineHeight: 30,
     color: theme.colors.heading,

@@ -26,8 +26,6 @@ export function Home() {
       },
       category: "1",
       date: "22/06 as 20:40h",
-      description:
-        "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
     },
     {
       id: "2",
@@ -40,8 +38,6 @@ export function Home() {
       },
       category: "1",
       date: "22/06 as 20:40h",
-      description:
-        "É hoje que vamos chegar ao challenger sem perder uma partida da md10",
     },
   ];
 
@@ -59,31 +55,28 @@ export function Home() {
 
   return (
     <Background>
-      <View>
-        <View style={styles.header}>
-          <Profile />
-          <ButtonAdd onPress={handleAppointmentCreate} />
-        </View>
-
-        <CategorySelect
-          categorySelected={category}
-          setCategory={handleCategorySelect}
-        />
-
-        <View style={styles.content}>
-          <ListHeader title="Partidas agendadas" subtitle="Total 6" />
-          <FlatList
-            style={styles.matches}
-            data={appointments}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <Appointment data={item} onPress={handleAppointmentDetails} />
-            )}
-            ItemSeparatorComponent={() => <ListDivider />}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
+      <View style={styles.header}>
+        <Profile />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
+
+      <CategorySelect
+        categorySelected={category}
+        setCategory={handleCategorySelect}
+      />
+
+      <ListHeader title="Partidas agendadas" subtitle="Total 6" />
+      <FlatList
+        style={styles.matches}
+        data={appointments}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Appointment data={item} onPress={handleAppointmentDetails} />
+        )}
+        ItemSeparatorComponent={() => <ListDivider length="78.4%" />}
+        contentContainerStyle={{ paddingBottom: 69 }}
+        showsHorizontalScrollIndicator={false}
+      />
     </Background>
   );
 }
