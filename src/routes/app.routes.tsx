@@ -9,7 +9,7 @@ import { SignIn } from "../screens/SignIn";
 
 const { Navigator, Screen } = createStackNavigator();
 
-export function AuthRoutes() {
+export function AppRoutes() {
   const { user } = useAuth();
 
   return (
