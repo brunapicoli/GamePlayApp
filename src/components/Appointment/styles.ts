@@ -8,9 +8,9 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   guildIconContainer: {
-    width: 64,
+    width: 68,
     height: 68,
-    borderRadius: 8,
+    borderRadius: 33,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 20,

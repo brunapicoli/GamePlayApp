@@ -14,6 +14,7 @@ export type AppointmentProps = {
   guild: GuildProps;
   category: string;
   date: string;
+  description: string;
 }
 
 type Props = RectButtonProps & {
@@ -32,7 +33,7 @@ export function Appointment({ data, ...rest }: Props) {
           style={styles.guildIconContainer}
           colors={[secondary50, secondary70]}
         >
-          <GuildIcon />
+          <GuildIcon guildId={data.guild.id} iconId={data.guild.icon} />
         </LinearGradient>
 
         <View style={styles.content}>

@@ -1,7 +1,6 @@
 import { Image, Text, View } from 'react-native';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Avatar } from '../Avatar';
 
 export type MemberProps = {
