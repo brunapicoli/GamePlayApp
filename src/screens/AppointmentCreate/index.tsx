@@ -5,6 +5,7 @@ import {
   View,
   Platform,
   ScrollView,
+  Alert,
 } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import uuid from "react-native-uuid";
@@ -52,23 +53,27 @@ export function AppointmentCreate() {
   }
 
   async function handleSave() {
-    const newAppointment = {
-      id: uuid.v4(),
-      guild,
-      category,
-      date: `${date} às ${time}h`,
-      description
-    };
+    if (!category || !guild.id || !date || !time || !description) {
+      Alert.alert("Preencha todos os campos");
+    } else {
+      const newAppointment = {
+        id: uuid.v4(),
+        guild,
+        category,
+        date: `${date} às ${time}h`,
+        description,
+      };
 
-    const storage = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
-    const appointments = storage ? JSON.parse(storage) : [];
+      const storage = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
+      const appointments = storage ? JSON.parse(storage) : [];
 
-    await AsyncStorage.setItem(
-      COLLECTION_APPOINTMENTS,
-      JSON.stringify([...appointments, newAppointment])
-    );
+      await AsyncStorage.setItem(
+        COLLECTION_APPOINTMENTS,
+        JSON.stringify([...appointments, newAppointment])
+      );
 
-    navigation.navigate('Home' as never);
+      navigation.navigate("Home" as never);
+    }
   }
 
   return (
@@ -125,10 +130,11 @@ export function AppointmentCreate() {
                 <SmallInput
                   maxLength={4}
                   placeholder="dd/mm"
-                  onChangeText={setDate}
+                  onChangeText={(text) => {
+                    setDate(`${text.substring(0, 2)}/${text.substring(2)}`);
+                  }}
                 />
               </View>
-
               <View>
                 <Text style={[styles.label, { marginBottom: 12 }]}>
                   Horário
@@ -136,7 +142,9 @@ export function AppointmentCreate() {
                 <SmallInput
                   maxLength={4}
                   placeholder="hh:mm"
-                  onChangeText={setTime}
+                  onChangeText={(text) => {
+                    setTime(`${text.substring(0, 2)}:${text.substring(2)}`);
+                  }}
                 />
               </View>
             </View>

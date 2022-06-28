@@ -1,16 +1,16 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import { StyleSheet } from "react-native";
+import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
     paddingHorizontal: 24,
   },
   content: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     marginVertical: 12,
     marginLeft: 20,
   },
@@ -20,9 +20,9 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 4,
   },
-  game: {
+  owner: {
     fontFamily: theme.fonts.text400,
     color: theme.colors.highlight,
     fontSize: 13,
-  }
-})
+  },
+});

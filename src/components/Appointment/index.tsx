@@ -1,13 +1,13 @@
-import { Text, View } from 'react-native';
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-import { categories } from '../../utils/categories';
-import { GuildIcon } from '../GuildIcon';
-import PlayerSvg from '../../assets/player.svg';
-import CalendarSvg from '../../assets/calendar.svg';
-import { styles } from './styles';
-import { theme } from '../../global/styles/theme';
-import { GuildProps } from '../Guild';
-import { LinearGradient } from 'expo-linear-gradient';
+import { Text, View } from "react-native";
+import { RectButton, RectButtonProps } from "react-native-gesture-handler";
+import { categories } from "../../utils/categories";
+import { GuildIcon } from "../GuildIcon";
+import PlayerSvg from "../../assets/player.svg";
+import CalendarSvg from "../../assets/calendar.svg";
+import { styles } from "./styles";
+import { theme } from "../../global/styles/theme";
+import { GuildProps } from "../Guild";
+import { LinearGradient } from "expo-linear-gradient";
 
 export type AppointmentProps = {
   id: string;
@@ -15,14 +15,14 @@ export type AppointmentProps = {
   category: string;
   date: string;
   description: string;
-}
+};
 
 type Props = RectButtonProps & {
- data: AppointmentProps;
-}
+  data: AppointmentProps;
+};
 
 export function Appointment({ data, ...rest }: Props) {
-  const [category] = categories.filter(item => item.id === data.category);
+  const [category] = categories.filter((item) => item.id === data.category);
   const { owner } = data.guild;
   const { primary, on, secondary50, secondary70 } = theme.colors;
 
@@ -38,31 +38,19 @@ export function Appointment({ data, ...rest }: Props) {
 
         <View style={styles.content}>
           <View style={styles.header}>
-            <Text style={styles.title}>
-              { data.guild.name }
-            </Text>
-            <Text style={styles.category}>
-              { category.title }
-            </Text>
-          </View>
-
-          <View style={styles.body}>
-            <Text style={styles.gameName}>
-              { data.guild.game }
-            </Text>
+            <Text style={styles.title}>{data.guild.name}</Text>
+            <Text style={styles.category}>{category.title}</Text>
           </View>
 
           <View style={styles.footer}>
             <View style={styles.dateInfo}>
               <CalendarSvg />
-              <Text style={styles.date}>
-                { data.date }
-              </Text>
+              <Text style={styles.date}>{data.date}</Text>
             </View>
             <View style={styles.playersInfo}>
-              <PlayerSvg fill={ owner ? primary : on } />
+              <PlayerSvg fill={owner ? primary : on} />
               <Text style={[styles.player, { color: owner ? primary : on }]}>
-                { owner ? 'Anfitrião' : 'Visitante'}
+                {owner ? "Anfitrião" : "Visitante"}
               </Text>
             </View>
           </View>
